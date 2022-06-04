@@ -1,0 +1,26 @@
+{% extends 'nutrica/header.html' %}
+{% load static %}
+
+{% block head %}
+  <title>Appointment</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/appointment.css' %}">
+    {% endblock %}
+
+{% block header %}
+
+<div class="landing-page" id="app-sec">
+    <div class="form-appointment">
+        <div class="wpcf7" style="line-height: 30px;" id="wpcf7-f560-p590-o1">
+            <center>
+            <h3 style="margin-bottom: 1em; color: gray; font-weight: 500;">Appointment is booked for <strong>{{name}}</strong></h3>
+            <h4 style="margin-bottom: 1em; font-weight: 400;">Please confirm details</h4>
+            <p style="margin-bottom: 10px;">Your Mobile Number is <strong>{{phone}}</strong></p>
+            <p style="margin-bottom: 10px;">Your Email is <strong>{{email}}</strong></p>
+            <p style="margin-bottom: 10px;">Your timing slot is <strong>{{day_time}}</strong></p>
+            <p style="margin-bottom: 10px;">We will soon contact you in your <strong>{{connection_way}}</strong> </p>
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

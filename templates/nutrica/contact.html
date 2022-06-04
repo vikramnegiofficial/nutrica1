@@ -1,0 +1,88 @@
+{% extends 'nutrica/header.html' %}
+{% load static %}
+
+
+{% block head %}
+
+<title>Contact Us</title>
+
+        <!-- <link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet"/> -->
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+            rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Oswald"
+            rel="stylesheet"/>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+        <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+        <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+      
+        <style>
+            ul ,ol{
+                margin: 0;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+{% endblock %}
+{% block header %}
+
+<div class="cont-frm-main">
+<div class="contact-form">
+    <div class="first-container">
+      <div class="info-container">
+        <div><img class="icon"/>
+          <h3>Address</h3>
+          <p>Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US</p>
+        </div>
+        <div> <img class="icon"/>
+          <h3>Lets Talk</h3>
+          <p>+1 800 1236879</p>
+        </div>
+        <div><img class="icon"/>
+          <h3>General Support</h3>
+          <p>contact@example.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="second-container">
+      <h2>Send Us A Message</h2>
+      <form>
+        <div class="form-group">
+          <label for="name-input">Tell us your name*</label>
+          <input id="name-input" type="text" placeholder="First name" required="required"/>
+          <input type="text" placeholder="Last name" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="email-input">Enter your email*</label>
+          <input id="email-input" type="text" placeholder="Eg. example@email.com" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="phone-input">Enter phone number*</label>
+          <input id="phone-input" type="text" placeholder="Eg. +1 800 000000" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="message-textarea">Message</label>
+          <textarea id="message-textarea" placeholder="Write us a message"></textarea>
+        </div>
+        <button>Send message</button>
+      </form>
+    </div>
+  </div>
+    </div>
+    
+{% endblock %}
+{% block js %}
+<script>
+document.querySelector('#contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.target.elements.name.value = '';
+    e.target.elements.email.value = '';
+    e.target.elements.message.value = '';
+  });
+  </script>
+{% endblock js %}

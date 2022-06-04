@@ -1,0 +1,186 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+}
+.mcbox{
+    /* width: 80%; */
+    width:  min(100% - 2rem, 1200px);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.mcb-left{
+    width: 250px;
+}
+.mcb-right{
+    display: flex;
+    justify-content: space-around;
+}
+.vitamins, .minerals{
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css */
+
+
+.skills,
+.skills .skill,
+.skills .skill .skill-title,
+.skills .skill .skill-bar {
+   width: 100%;
+   float: left;
+}
+
+.skills {
+   padding:15px;
+}
+
+.skills .skill {
+   margin-bottom: 30px;
+}
+
+.skills .skill .skill-title {
+   color: #808080;
+   margin-bottom: 18px;
+   font-weight: 550;
+   font-size: 14px;
+}
+
+.skills .skill .skill-bar {
+   width: 0;
+   height: 6px;
+   line-height: 0.5;
+   background: #f0f0f0;
+   transition: 1s cubic-bezier(1, 0, .5, 1);
+   -webkit-transition: 1s cubic-bezier(1, 0, .5, 1);
+   -ms-transition: 1s cubic-bezier(1, 0, .5, 1);
+}
+
+.skills.active .skill .skill-bar {
+   width: 100%;
+}
+
+.skills .skill .skill-bar span {
+   float: left;
+   width: 0%;
+   background: #1D91F2;
+   height: 6px;
+   position: relative;
+   transition: 1s cubic-bezier(1, 0, .5, 1);
+   -webkit-transition: 1s cubic-bezier(1, 0, .5, 1);
+   -ms-transition: 1s cubic-bezier(1, 0, .5, 1);
+}
+
+.skills .skill .skill-bar span b {
+   float: left;
+   width: 100%;
+   position: relative;
+   text-align: right;
+   opacity: 0;
+   font-size: 14px;
+   color: #1D91F2;
+   font-weight: 400;
+   top: -13px;
+}
+
+.container{
+  width: 100%;
+  max-width: 600px;
+  padding:0 15px;
+  margin:0 auto;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900&subset=latin,latin-ext);
+
+html,body{
+  /* overflow: hidden; */
+  font-family: 'Roboto', sans-serif;
+}
+.sel-food{
+   display: block;
+   text-align: center;
+   margin: 0;
+}
+.nutri-box .sel-food label{
+   font-size: 15px;
+   margin-bottom: 3px;
+   font-weight: 500;
+   float: left;
+   margin-bottom: 10px;
+   font-family: 'Roboto', sans-serif;
+
+}
+.select-food{
+   width: 100%;
+   height: 30px;
+   font-size: 14px;
+   padding-left: 12px;
+   margin: 15px 0px;
+   border-radius: 10px;
+}
+input[type=submit]{
+   width: 100px;
+   border-radius: 9px;
+   height: 35px;
+   font-weight: 550;
+   background-color: #4c4c4c;
+   color: #f2f2f2;
+   border: 1px solid #4c4c4c;
+ }
+ input[type=submit]:hover{
+   background-color: transparent;
+   border: 1px solid #4c4c4c;
+   cursor: pointer;
+   color: #4c4c4c;
+
+ }
+ @media (max-width: 800px){
+   .mcbox{
+      flex-direction: column;
+   }
+   .mcb-left{
+      display: flex;
+    width: 100%;
+    padding: 0 15px;
+    justify-content: space-between;
+   }
+ }
+ @media (max-width: 650px){
+    .nutri-box{
+       width: 50%;
+    }
+
+ }
+ @media (max-width: 440px){
+   .nutri-box{
+      width: 100%;
+      margin-bottom: 15px;
+   }
+    .mcb-left{
+      flex-direction: column;
+      align-items: center;
+    }
+    .mcb-right{
+       flex-direction: column;
+    }
+ }
+ 

@@ -1,0 +1,57 @@
+{% extends 'nutrica/header.html' %}
+{% load static %}
+
+{% block head %}
+<title>Patients</title>
+<link rel="stylesheet" href="{% static 'css/patient.css' %}">
+<link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+{% endblock %}
+
+{% block header %}
+
+
+<table class="pac-tbl">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Symptoms</th>
+            <th>Lab REport</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patient_list %}
+        <tr>
+            <td>{{patient.id}}</td>
+            <td><a href="{% url 'singlepatient' patient.id %}">
+                {% if patient.img %}
+                    <img class="patient-img" src="{{ patient.img.url}}" type="jpg/jfif/png/jpeg" style="height: 75px; width:75px">
+                    {% else %}
+                    <img class="album-song-img" src="https://i.postimg.cc/Y26YPMSb/zuko.jpg">
+                    {% endif %}
+                    </a>
+            </td>
+            <td>{{patient.name}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.gender}}</td>
+            <td>{{patient.symptoms}}</td>
+            <td>
+                {% if patient.labReport %}
+                    <iframe src="{{ patient.labReport.url }}" type="jpeg/png/jpg/pdf" style="height: 75px; width:75px"></iframe>
+                    {% else %}
+                    <p>We will upload it soon.</p>
+                    {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

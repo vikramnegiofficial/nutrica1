@@ -1,0 +1,86 @@
+.mini-nav{
+    display: flex;
+    width: 310px;
+    justify-content: space-between;
+    margin: 30px 60px;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: rgb(145, 147, 180);
+}
+.pat-details{
+    display: flex;
+    justify-content: center;
+}
+.pd-container{
+    width: 80%;
+    align-items: center;
+}
+.pdc-img{
+    display: flex;
+    justify-content: center;
+}
+.pdc-img img{
+    height: 120px;
+    width: 120px;
+
+    border-radius: 50%;
+}
+.pdc-name{
+    margin: 25px 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+.pdc-details h2{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 650;
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 15px;
+
+}
+.pdc-des h2, .pdcs-sys h2, .pdcm-bill h2, .pdcs-sys h2{
+    font-size: 19px;
+    font-weight: 650;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.pdc-des p{
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+.pdc-sym{
+    display: flex;
+    justify-content: space-between;
+}
+.pdcs-sys p{
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+.pdc-perdet{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+.pdc-money p{
+    display: block;
+    margin-top: 12px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+.pdcm-bill{
+    margin-bottom: 50px;
+}

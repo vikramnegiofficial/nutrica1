@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/homme.css' %}"> -->
+    
+    
+    <!-- <script src="{% static 'js/header.js' %}"></script> -->
+    <script src="https://kit.fontawesome.com/bf2d101e4b.js" crossorigin="anonymous"></script>
+    <!-- <link rel="icon" href="{% static '/' %}"> -->
+
+    <link rel="stylesheet" type="text/css" href="{%static 'css/header.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+
+
+    
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css'%}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  {% block head %}
+  <title>Nutrica</title>
+  <link rel="stylesheet" href="{% static 'css/header.css'%}">
+    {% endblock %}
+
+    
+</head>
+<body>
+   <div class="main-bar">
+      <nav>
+         <input type="checkbox" id="check">
+         <label for="check" class="checkbtn">
+            <span></span>
+            <span></span>
+            <span></span>
+         </label>
+         <div class="logo-header">
+            <a href="#">NUTRICA</a>
+         </div>
+         <ul>
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'aboutus' %}">about us</a></li>
+            <!-- <li><a href="{% url 'contact' %}">contact us</a></li> -->
+            <li><a href="{% url 'nutrition' %}">Nutrition</a></li>
+            <!-- <li><a href="{% url 'myaccount' %}">My Account</a></li> -->
+            {% if user.is_authenticated %}
+            {% if user.last_name == "hospital staff" %}
+            <li><a href="{% url 'patient' %}">Patient</a></li>
+            {% endif %}
+            {% else %}
+            <li><a href = "{% url 'contact' %}">Contact us</a></li>
+            {% endif %}
+            <!-- dropdown -->
+            {% if not user.is_authenticated %}
+            <li class="dropdown">
+               <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+               <div class="dropdown-content">
+                  <a href="{% url 'register' %}">Sign up</a>
+                  <a href="{% url 'login' %}">Sign in</a>
+               </div>
+             </li>
+             {% else %}
+            <li><a href="{% url 'logout' %}">Log out</a></li>
+            
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></a>
+              <div class="dropdown-content">
+                 <a href="{% url 'register' %}">Admin Dashboard</a>
+                 <a href="{% url 'myaccount' %}">Profile</a>
+                 <a href="{% url 'patient' %}">Your Patients</a>
+              </div>
+            </li>
+         </ul>
+         <p id="welcome-user">Hello, {{user.username}}</p>
+            {% endif %}
+               
+         </div>
+      </nav>
+   </div>
+
+
+   {% block header %}
+   {% endblock %}
+
+
+<!----------------- footer ----------------->
+<footer class="footer">
+  <div class="footer__addr">
+    <h1 class="footer__logo">Something</h1>
+        
+    <h2>Contact</h2>
+    
+    <address>
+      F-41, First Floor, Connaught Place, New Delhi<br>
+          
+      <a class="footer__btn" href="vikramnegi175@gmail.com">Email Us</a>
+    </address>
+  </div>
+  
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Media</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Online</a>
+        </li>
+
+        <li>
+          <a href="#">Print</a>
+        </li>
+            
+        <li>
+          <a href="#">Alternative Ads</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Technology</h2>
+      
+      <ul class="nav__ul nav__ul--extra">
+        <li>
+          <a href="#">Digital Health</a>
+        </li>
+        
+        <li>
+          <a href="#">Top Doctors</a>
+        </li>
+        
+        <li>
+          <a href="#">Dieting</a>
+        </li>
+        
+        <li>
+          <a href="#">Healthy life</a>
+        </li>
+        
+        <li>
+          <a href="#">Connect to Specilist</a>
+        </li>
+        
+        <li>
+          <a href="#">IoT & Health</a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+      
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+        
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+        
+        <li>
+          <a href="#">Sitemap</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="hr-u-social"></div>
+    <ul class="socials">
+      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa fa-github"></i></a></li>
+      <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+      <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+   </ul>
+<div class="footer-bottom">
+  <p>copyright &copy;2021 <a href="#">Vikram Negi || All rights reserved.</a>  </p>
+  <div class="footer-menu">
+    <ul class="f-menu">
+       <li><a href="#home">Home</a></li>
+       <li><a href="#about">About</a></li>
+       <li><a href="#contact">Contact</a></li>
+       <li><a href="#nutrition">Nutrition</a></li>
+    </ul>
+   </div>
+</div>
+</footer>
+
+<!-- End Footer -->
+
+
+
+
+
+
+   <!-- jQery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<!-- popper js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<!-- bootstrap js -->
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+<!-- owl slider -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<!-- custom js -->
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+</script>
+<!-- End Google Map -->
+
+
+
+
+   <script src="{% static 'js/header.js' %}"></script>
+   <script>
+      $(document).ready(function () {
+         $('input[type=submit]').click(function () {
+         $('input[type=submit]').toggleClass('red');
+      });
+      });
+      const app_details = document.getElementById('app-sec');
+      const app_sec = document.getElementById('app-btn');
+      app_sec.addEventListener('click', ()=>{
+         app_details.style.display = "block";
+      })
+
+
+
+
+
+</script>
+{% block js %}{% endblock js %}
+   </body>
+
+
+</html>    
+  

@@ -1,0 +1,63 @@
+{% extends 'nutrica/header.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+<link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+{% endblock %}
+{% block header %}
+
+<div class="about-page">
+    <div class="ap-container">
+      <div class="apc-row">
+        <div class="section-head">
+          <h4><span>Why Choose</span> Us?</h4>
+          <p>Nutrica is a full-service marketing and advertising agency dedicated exclusively to helping healthcare organizations attract new patients, enhance their reputations (brands) and maximize their business success.</p>
+        </div>
+        <div class="feature-box">
+        <div class="fb-col">
+          <div class="item"> <span class="icon feature_box_col_one"><i class="fa fa-globe"></i></span>
+            <h6>Best Doctors</h6>
+            <p>Our plateform have many doctors whom expeert in their respective fields.</p>
+          </div>
+        </div>
+          <div class="fb-col">
+            <div class="item"> <span class="feature_box_col_two"><i class="fa fa-anchor"></i></span>
+              <h6>106K+ Peoples trust</h6>
+              <p>As of today we served more than 110k peoples and our customer is our backbone.</p>
+            </div>
+          </div>
+          <div class="fb-col">
+            <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-hourglass-half"></i></span>
+              <h6>24 x 7 User Support</h6>
+              <p>If our customer has any problem and any query we are always happy to help then.</p>
+            </div>
+          </div>
+          <div class="fb-col">
+            <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
+              <h6>Business Growth</h6>
+              <p>Everyone wants to live on top of the mountain, but all the happiness and growth occurs while you're climbing it</p>
+            </div>
+          </div>
+          <div class="fb-col">
+            <div class="item"> <span class="icon feature_box_col_five"><i class="fa fa-upload"></i></span>
+              <h6>International recognation</h6>
+              <p>Our brand is cretified by many health organizations. We are recognised by World Health organization</p>
+            </div>
+          </div>
+          <div class="fb-col">
+            <div class="item"> <span class="icon feature_box_col_six"><i class="fa fa-camera"></i></span>
+              <h6>Affordable cost</h6>
+              <p>Love is a special word, and I use it only when I mean it. You say the word too much and it becomes cheap.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

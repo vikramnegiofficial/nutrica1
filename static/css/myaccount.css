@@ -1,0 +1,250 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+.my-acc-cont{
+    width: 100%;
+    margin: 75px auto;
+    /* margin-top: 75px; */
+}
+/* .my-acc-cont p{
+    padding: 0em 2em;
+    word-wrap: break-word;
+    line-height: 1.5;
+} */
+.img-cont{
+    position: absolute;
+    top: 75px;
+    z-index: -1;
+    width: 100%;
+    height: 150px;
+    background: rgba(151, 151, 192, 0.5); 
+}
+.acc-info-sec{
+    margin: 0 5em;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 0;
+    width: calc(100% - 10em);
+}
+.profile-cover-cont ,.cover-img{
+    width: 100%;
+}
+.profile-cover-cont .cover-img img{
+    width: calc(-72px);
+    width: 100%;
+    height: 300px;
+    object-fit:cover;
+}
+
+.cover-img .camera-box i, .camera-box, .cover-btn{
+    position: absolute;
+    right: 25px;
+}
+.cover-img .camera-box i, .camera-box{
+    top: 15px;
+}
+.cover-img .camera-box i{
+    font-size: 25px;
+    color: #fff;
+    right: 10px;
+    top: 9px;
+}
+.cover-btn{
+    top: 250px;
+}
+.cover-btn button{
+    width: 150px;
+    background-color: rgb(240, 212, 53);
+    border: none;
+    padding: 8px 15px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+.camera-box, .pro-cam-box{
+    width: 45px;
+    border-radius: 50%;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.acc-info-cont{
+    margin-top: -3px;
+    display: flex;
+    justify-content: space-between;
+}
+.info-sec-l, .info-profile{
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2px;
+    background-color: blueviolet;
+}
+.info-profile{
+    position: relative;
+}
+.profile-pic-cont{
+    position: absolute;
+    top: -75px;
+}
+.info-profile img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.profile-img-cam{
+    position: absolute;
+    top: 102px;
+    left: 102px;
+}
+.pro-cam-box i{
+    position: absolute;
+    font-size: 25px;
+    color: #fff;
+    right: 10px;
+    top: 10px;
+}
+.username{
+    margin-top: 100px;
+    line-height: 1.5;
+}
+.profile-info{
+    margin-left: -60px;
+    margin-top: 30px;
+}
+.profile-info p span{
+    font-size: 24px;
+
+}
+.soc-m-heading{
+    margin-top: 30px;
+    font-size: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    margin-left: -60px;
+}
+
+.social-pro{
+    margin-top: 10px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.soc-med-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 5px 15px;
+}
+.social-pro i{
+    font-size: 28px;
+}
+.view-profile{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    background-color: rgba(255,255,255,0.1);
+}
+.info-sec-r{
+    width: calc(100% - 6em);
+    margin: 8px 3em;
+}
+.acc-nav, .acc-nav-cont{
+    display: flex;
+    margin-bottom: 4px;
+}
+.acc-nav-ul{
+    display: flex;
+}
+.acc-nav-ul li{
+    width: 100px;
+    color: rgb(87, 87, 87);
+    text-decoration: none;
+    list-style: none;
+    line-height: 2;
+    transition: 0.5s ease-in;
+}
+.acc-nav-ul li:hover{
+    color: rgb(22, 22, 22);
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.acc-cards{
+    margin-top: 50px;
+}
+
+.card-up .card-up-l img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.a-card{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.card-up, .card-mid, .card-bot, .card-up-l
+, .card-up-r, .card-bot-l, .card-bot-r{
+    display: flex;
+}
+
+.card-bot, .card-up{
+    justify-content: space-between;
+}
+.card-up{
+    padding: 15px 1em;
+    align-items: center;
+}
+.card-up-l{
+    width: 250px;
+}
+.card-up-l .card-name{
+    margin-left: 15px;
+}
+.card-name p:first-child{
+    font-size: 20px;
+}
+.card-name p:last-child{
+    font-size: 12px;
+    color: gray
+}
+.card-up-r{
+    width: 70px;
+    margin-right: 12px;
+    justify-content: space-between;
+}
+.card-up-r i{
+    color: rgb(235, 88, 88);
+}
+.card-up i{
+    font-size: 20px;
+}
+.card-mid p{
+    padding: 18px 25px;
+}
+.card-bot{
+    padding: 10px 1em;
+    background-color: rgba(212, 212, 212, 0.3);
+}
+.card-bot-l{
+    color: rgb(253, 90, 90);
+}
+.card-bot-r{
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+}
+.card-bot-r i{
+    font-size: 21px;
+    color: rgb(121, 120, 120);
+}

@@ -1,0 +1,467 @@
+{% extends 'nutrica/header.html'%}
+{% load static %}
+{% load mathfilters %}
+{% block head%}
+    <title>Nutrition</title>
+    <link rel="stylesheet" href="{% static 'css/nutrition.css' %}">
+    <style>
+       #welcome-user{
+         line-height: 3.5;
+      }
+        .skill-title{
+            margin-bottom: 15px;
+        }
+        .error-msg{
+            text-align: center;
+            font-weight: 550;
+            color: rgb(224, 42, 42);
+            margin-top: 15px;
+        }
+    </style>
+
+{% endblock %}
+{% block header %}
+    <div class="main-container">
+        <div class="mcbox">
+            <div class="mcb-left">
+                <div class="nutri-box">
+                    <form class="sel-food" action="" method="post">
+                        {% csrf_token %}
+                        <label for="food_name">Select An Item</label>
+                        {% for message in messages %}
+                    <div class="error-msg">{{message}}</div>
+                    {% endfor %}
+                        <select name="food_name" class="select-food">
+                            {% for i in obj %}
+                            <option value="{{i.name}}">{{i.name}}</option>
+                            {% endfor %}
+                        </select>
+                        <input id="search-item" onclick="showItem()" type="submit">
+                    </form>
+                    
+                </div>
+                <div class="main-nutri">
+                    {% if item.name is not none %}
+                    <div id="food-res">
+                        <!-- <h1><div class="mcb-right"> -->
+                <!-- <div class="container">
+                    <div class="skills vitamins"> -->
+                       <!-- </h1> -->
+                        <center><h2 style="margin-bottom: 18px;">{{item.name}}</h2></center>
+                        <p style="line-height: 25px;">fat : {{item.fat}}<br/>
+                        calories : {{item.calories}}<br/>
+                        proteins : {{item.proteins}}<br/>
+                        carbohydrates : {{item.carbohydrates}}<br/>
+                        <!-- nutrients<br/> -->
+                        </p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+
+
+
+
+            {% if nutrientsdata is not none %}
+
+        
+            <div class="mcb-right">
+                <div class="container">
+                    <div class="skills vitamins">
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Linoleicacid
+                          </div>
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{   nutrientsdata.Linoleicacid|div:sum|floatformat:2  }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            alphaLinolenicacid
+                          </div>
+                          
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{alphaLinolenicacid.VitaminB1|div:sum|floatformat:2 }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Tryptophan
+                          </div>
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{nutrientsdata.Tryptophan|div:sum|floatformat:2 }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Threonine
+                          </div>
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{nutrientsdata.Threonine|div:sum|floatformat:2 }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+
+                       <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Isoleucine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Isoleucine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Leucine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Leucine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Lysine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Lysine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Methionine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Methionine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Phenylalanine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Phenylalanine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Valine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Valine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                            Histidine
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.Histidine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin K
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminK|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+                    </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="skills vitamins">
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Vitamin A
+                          </div>
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{   nutrientsdata.VitaminB1|div:sum|floatformat:2   }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Vitamin B1
+                          </div>
+                          
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB1|div:sum|floatformat:2 }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Vitamin B2
+                          </div>
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB2|div:sum|floatformat:2 }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+                       <!-- skill -->
+                       <div class="skill">
+                          <!-- title -->
+                          <div class="skill-title">
+                            Vitamin B3
+                          </div>
+                          <!-- bar --> {% if sum %}
+                          <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB3|div:sum|floatformat:2 }}"><span></span></div>
+                       </div>
+                       <!-- #skill --> {% endif %}
+
+                       <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin B5
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB5|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin B6
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB6|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin B7
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB7|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin B9
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB9|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin B12
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminB12|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin C
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminC|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin E
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminE|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+
+                     <div class="skill">
+                        <!-- title -->
+                        <div class="skill-title">
+                          Vitamin K
+                        </div>
+                        <!-- bar --> {% if sum %}
+                        <div class="skill-bar" data-bar="{{nutrientsdata.VitaminK|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                     </div>
+                    </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="skills minerals">
+                        <!-- skill -->
+                        <div class="skill">
+                           <!-- title -->
+                           <div class="skill-title">
+                            Calcium
+                           </div>
+                           <!-- bar --> {% if sum %}
+                           <div class="skill-bar" data-bar="{{nutrientsdata.Calcium|div:sum|floatformat:2 }}"><span></span></div>
+                        </div>
+                        <!-- #skill --> {% endif %}
+                        <!-- skill -->
+                        <div class="skill">
+                           <!-- title -->
+                           <div class="skill-title">
+                            Chloride
+                           </div>
+                           <!-- bar --> {% if sum %}
+                           <div class="skill-bar" data-bar="{{nutrientsdata.Calcium|div:sum|floatformat:2 }}"><span></span></div>
+                        </div>
+                        <!-- #skill --> {% endif %}
+                        <!-- skill -->
+                        <div class="skill">
+                           <!-- title -->
+                           <div class="skill-title">
+                            Chromium
+                           </div>
+                           <!-- bar --> {% if sum %}
+                           <div class="skill-bar" data-bar="{{nutrientsdata.Chromium|div:sum|floatformat:2 }}"><span></span></div>
+                        </div>
+                        <!-- #skill --> {% endif %}
+                        <!-- skill -->
+                        <div class="skill">
+                           <!-- title -->
+                           <div class="skill-title">
+                            Copper
+                           </div>
+                           <!-- bar --> {% if sum %}
+                           <div class="skill-bar" data-bar="{{nutrientsdata.Copper|div:sum|floatformat:2 }}"><span></span></div>
+                        </div>
+                        <!-- #skill --> {% endif %}
+
+                        <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Iodine
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Iodine|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Iron
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Iron|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Magnesium
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Magnesium|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Manganese
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Manganese|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Molybdenum
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Molybdenum|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Phosphorus
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Phosphorus|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Potassium
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Potassium|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Selenium
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Selenium|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Sodium
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Sodium|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+
+                         <div class="skill">
+                            <!-- title -->
+                            <div class="skill-title">
+                                Zinc
+                            </div>
+                            <!-- bar --> {% if sum %}
+                            <div class="skill-bar" data-bar="{{nutrientsdata.Zinc|div:sum|floatformat:2 }}"><span></span></div> {% endif %}
+                         </div>
+                     </div>
+                     {% endif %}
+            </div>
+        </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+{% endblock header %}
+{% block js %}
+<script src="{% static 'js/nutrition.js' %}"></script>
+{% endblock js %}

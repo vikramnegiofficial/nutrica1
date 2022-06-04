@@ -1,0 +1,39 @@
+{% extends 'nutrica/header.html' %}
+
+{% load  static %}
+
+{% block header %}
+
+<div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Doctor Login Form</h2>
+      </div>
+      {% for messages in messages %}
+        <h2>{{messages}}</h2>
+      {% endfor %}
+      <div class="roww clearfix">
+        <div class="">
+          <form action="" method="post">
+              {% csrf_token %}
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="text" name="emailUsername" placeholder="Email/Username" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" name="password" placeholder="Password" required />
+            </div>
+              <div class="input_field checkbox_option">
+                  <input type="checkbox" id="cb1">
+                  <label for="cb1">remember me</label>
+              </div>
+            <input class="reg-btn" type="submit" value="login" />
+            <div class="not-acc">
+                <p>Don't have an account? <a href="../doc_reg">Sign up</a></p>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

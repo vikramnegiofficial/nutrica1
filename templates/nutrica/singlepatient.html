@@ -1,0 +1,67 @@
+{% extends 'nutrica/header.html' %}
+{% load static %}
+
+{% block head %}
+<title>Patients</title>
+<link rel="stylesheet" href="{% static 'css/singlepatient.css' %}">
+<link href="{% static 'css/style.css'%}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+{% endblock %}
+
+{% block header %}
+<div class="mini-nav">
+    <a href="{% url 'home' %}">home</a>
+    <li id="patient"><a href="{% url 'patient' %}">patient</a></li>
+    <li>{{patient.name}}</li>
+</div>
+<div class="pat-details">
+    <div class="pd-container">
+        <div class="pdc-img">
+            {% if patient.img %}
+                <!-- <img  id="patient-img" src="{{ patient.img.url }}"> -->
+                
+                <img id = "patient-img" src="{% static 'img/default.png' %}">
+                {% else %}
+                <h3>Loading....</h3>
+                {% endif %}
+        </div>
+        <div class="pdc-name">{{patient.name}}</div>
+        <div class="pdc-details">
+            <h2>Personal Details</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod est iusto deserunt fuga itaque tempore ex qui doloremque expedita necessitatibus recusandae quam tempora corrupti minus sit ipsa ullam, obcaecati quidem praesentium voluptatum eveniet! Provident iusto sit unde inventore ipsam sequi dolores dignissimos? Rerum, vero sit!</p>
+
+            </div>
+
+            <div class="pdc-perdet">
+                    <strong> age : <strong>{{patient.age}}
+                    <strong>Patient Gender :</strong> {{patient.gender}}
+                    <strong>PAtient Address : </strong>{{patient.address}}
+                </ul>
+            </div>
+
+        <div class="pdc-des">
+            <h2>
+                Patient Medical History
+            </h2><p>{{patient.medHistory}}</p></div>
+        <div class="pdc-sym">
+            <div class="pdcs-sys">
+                <h2>
+                    Patient Symptoms
+                </h2><p>{{patient.symptoms}}</p>
+            </div>
+            <div class="pdcs-labreport">{{patient.labReport}}</div>
+        </div>
+        
+        <div class="pdc-money">
+            <p><strong>Payment done by Patient  : </strong>{{patient.transectionDone}}</p>
+            <p><strong>Due payment of patient : </strong>{{patient.transectionDue}}</p>
+            <div class="pdcm-bill">
+                <h2>Patient Bill</h2>
+                <img  id="patient-bill" src="{{ patient.billCopy.url }}" type="PNG/JPEG"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

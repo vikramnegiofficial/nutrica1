@@ -1,0 +1,56 @@
+{% extends 'nutrica/header.html' %}
+
+{% load  static %}
+
+{% load widget_tweaks %}
+{% block head %}
+<link href="{% static 'css/account/register.css'%}" rel="stylesheet" />
+<style>
+  #welcome-user{
+         line-height: 3.5;
+      }
+  .dontacc{
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 550;
+    margin-left: 15px;
+  }
+  .remme{
+    margin: 15px 0 15px 15px;
+  }
+  .remme a{
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+</style>
+{% endblock head %}
+
+
+{% block header %}
+
+
+  <div class="testbox">
+    <h1>Registration</h1>
+    {% for messages in messages %}
+        <h2>{{messages}}</h2>
+      {% endfor %}
+    <form action="" method="post">
+      {% csrf_token %}
+    <hr>
+  
+    <label id="icon" for="username"><i class="fas fa-user "></i></label>
+    <!-- <input type="text" name="emailusername" id="email" placeholder="text" required/> -->
+    {% render_field form.username  class="form-control field"   id="username" placeholder="Username" %}
+  
+    <label id="icon" for="password"><i class="fas fa-lock"></i></label>
+    <!-- <input type="password" name="password" id="password" placeholder="Password" required/> -->
+    {% render_field form.password  class="form-control field"   id="password" type="password" placeholder="Password" %}
+  
+     <div class="remme"><input type="checkbox"><a href="#">Remember me</a></div>
+     <input type="submit" class="button" value="Signin">
+     <p class="dontacc">Don't have any account, <a href="{% url 'register' %}">SignUp</a></p>
+    </form>
+  </div>
+
+{% endblock %}
